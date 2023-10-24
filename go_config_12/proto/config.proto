@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+option go_package = "github.com/kishorens18";
+
+service DataService {
+    rpc AddData (DataRequest) returns (EmptyResponse);
+    rpc GetData (EmptyRequest) returns (DataResponse);
+}
+
+message DataRequest {
+    google.protobuf.Any data = 1;
+}
+
+message DataResponse {
+    google.protobuf.Any data = 1;
+}
+
+message EmptyRequest {}
+
+message EmptyResponse {}
